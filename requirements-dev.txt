@@ -6,4 +6,5 @@ black[jupyter]
 isort
 docformatter
 pytest
+pytest-cov
 commitizen
