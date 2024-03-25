@@ -1,7 +1,10 @@
 repos:
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
+      - id: check-json
+      - id: check-toml
       - id: check-yaml
       - id: end-of-file-fixer
       - id: trailing-whitespace
@@ -11,15 +14,16 @@ repos:
       - id: check-docstring-first
       - id: detect-private-key
       - id: check-docstring-first
+      - id: debug-statements
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 24.3.0
     hooks:
       - id: black
         name: black
 
   - repo: https://github.com/PyCQA/docformatter
-    rev: "v1.6.5"
+    rev: v1.7.5
     hooks:
       - id: docformatter
         name: docformatter
@@ -29,12 +33,24 @@ repos:
         types: [python]
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.0.264"
+    rev: v0.3.4
     hooks:
       - id: ruff
-        name: ruff
+      - id: ruff-format
 
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
       - id: isort
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.9.0
+    hooks:
+      - id: mypy
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.20.0
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [push]
