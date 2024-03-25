@@ -1,8 +1,8 @@
-name: 'Continuous Delivery'
+name: Continuous Delivery
 
 on:
   workflow_run:
-    workflows: [ "Continuous Integration" ]
+    workflows: [Continuous Integration]
     types:
       - completed
 
