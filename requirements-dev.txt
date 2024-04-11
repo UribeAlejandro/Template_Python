@@ -7,4 +7,3 @@ isort
 docformatter
 pytest
 pytest-cov
-commitizen
