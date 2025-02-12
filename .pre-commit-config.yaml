@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-ast
       - id: check-yaml
@@ -20,13 +20,13 @@ repos:
         args: [--markdown-linebreak-ext=md]
 
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.7.1
+    rev: 0.8.1
     hooks:
       - id: nbstripout
         args: ["notebooks/"]
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.9.6
     hooks:
       - id: ruff
         types_or: [python, pyi, jupyter]

@@ -1,3 +1,31 @@
+[tool.poetry]
+name = "template-python"
+version = "0.1.0"
+description = ""
+authors = ["Alejandro Uribe"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.9.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
+mypy = "^1.15.0"
+notebook = "^7.3.2"
+nbstripout = "^0.8.1"
+pre-commit = "^4.1.0"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
 exclude = [
