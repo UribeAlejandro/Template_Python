@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.13"
 
 
 [tool.poetry.group.lint.dependencies]
@@ -55,8 +55,8 @@ exclude = [
 # Same as Black.
 line-length = 120
 
-# Assume Python 3.12.
-target-version = "py312"
+# Assume Python 3.13.
+target-version = "py313"
 
 # Format Jupyter notebooks
 extend-include = ["*.ipynb"]
@@ -142,7 +142,7 @@ line_length = 120
 
 [tool.black]
 line-length = 120
-target-version = ['py312']
+target-version = ['py313']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -190,3 +190,15 @@ ignore_errors = true
 
 [tool.coverage.html]
 directory = "coverage_html_report"
+
+
+[tool.mypy]
+python_version = "3.13"
+modules = ["src"]
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = false
+exclude = [
+    '*.ipynb$',
+    "tests/**/*.py",
+]
