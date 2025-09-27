@@ -11,7 +11,11 @@ help:			## Show the help.
 
 .PHONY: install
 install:		## Install dependencies
+	@echo "Installing Python"
+	uv python install 3.13
 	@echo "Installing dependencies"
-	poetry install
+	uv sync --all-groups
 	@echo "Installing pre-commit hooks"
-	pre-commit install
+	uv run pre-commit install
+	@echo "Updating pre-commit hooks"
+	uv run pre-commit autoupdate

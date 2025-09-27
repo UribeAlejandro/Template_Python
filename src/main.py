@@ -1,7 +1,7 @@
-def main() -> None:
+def main() -> str:
     """Main function of the program."""
-    print("Hello World!")
+    return "Hello World!"
 
 
 if __name__ == "__main__":
-    main()
+    print(main())

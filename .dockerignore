@@ -11,13 +11,10 @@ notebooks/
 data.dvc
 docker-compose.yml
 Makefile
-pyproject.toml
 README.md
-requirements-dev.txt
-requirements-test.txt
 .dvcignore
-.git
-.idea
+.git/
+.idea/
 .mypy_cache
 .pytest_cache
 .ruff_cache
