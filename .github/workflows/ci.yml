@@ -25,7 +25,7 @@ jobs:
 
       - name: Static type checking with Ty
         run: |
-          uv run run ty check
+          uv run ty check
 
       - name: Test with pytest
         run: |
