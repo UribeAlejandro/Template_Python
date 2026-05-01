@@ -23,9 +23,9 @@ jobs:
       - name: Run Ruff
         run: uv run ruff check --output-format=github .
 
-      - name: MyPy type checking
+      - name: Static type checking with Ty
         run: |
-          uv run mypy --strict
+          uv run run ty check
 
       - name: Test with pytest
         run: |
