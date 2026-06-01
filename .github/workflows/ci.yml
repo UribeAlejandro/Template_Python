@@ -1,10 +1,15 @@
 name: Continuous Integration
 
 on: [ push, pull_request ]
+env: ${{ vars }}
+
+permissions:
+  contents: read
+  packages: write
 
 jobs:
   build:
-    name: Build & Test
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -15,18 +20,40 @@ jobs:
         uses: astral-sh/setup-uv@v6
 
       - name: Set up Python
-        run: uv python install
+        run: |
+          uv python install
 
       - name: Install the project
-        run: uv sync --all-groups
+        run: |
+          uv sync --dev
 
       - name: Run Ruff
-        run: uv run ruff check --output-format=github .
-
-      - name: Static type checking with Ty
         run: |
-          uv run ty check
+          uv run ruff check --output-format=github
+
+      - name: Run Pyrefly Type Checker
+        run: |
+          uv run pyrefly check --output-format=github
+
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: |
+          uv python install
+
+      - name: Install the project
+        run: |
+          uv sync --all-groups
 
       - name: Test with pytest
         run: |
-          uv run pytest
+          make test
